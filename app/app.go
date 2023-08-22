@@ -1,6 +1,12 @@
 package app
 
-import "github.com/urfave/cli"
+import (
+	"fmt"
+	"log"
+	"net"
+
+	"github.com/urfave/cli"
+)
 
 // Generate command line application
 func Generate() *cli.App {
@@ -8,5 +14,35 @@ func Generate() *cli.App {
 	app.Name = "Command Line Application"
 	app.Usage = "Search for IPs and Names of servers on the Internet"
 
+	flags := []cli.Flag{
+		cli.StringFlag{
+			Name: "host",
+			Value: "github.com/Kenji-Sh",
+		},
+	}
+
+	app.Commands = []cli.Command{
+		{
+			Name: "ip",
+			Usage: "Get IPs address from server",
+			Flags: flags,
+			Action: getIPs,
+		},
+	}
+
 	return app
 }
+
+func getIPs(c *cli.Context) {
+	host := c.String("host")
+
+	ips, error := net.LookupIP(host)
+	if error != nil {
+		log.Fatal(error)
+	}
+
+	for _, ip := range ips {
+		fmt.Println(ip)
+	}
+}
+
