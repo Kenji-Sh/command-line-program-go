@@ -11,13 +11,17 @@ aplicando o conhecimento básico que desenvolvi em poucos dias, como pointers, s
 
 ## Pacotes utilizados no Projeto:
 
+  ```
   [x] cli - https://github.com/urfave/cli
+  ```
 
 ## Instalação do projeto:
 
 1. Certifique-se de ter instalado:
 
+  ```
   Go
+  ```
 
 2. Clone este repositório:
 
@@ -31,7 +35,7 @@ aplicando o conhecimento básico que desenvolvi em poucos dias, como pointers, s
   cd command-line-program-go
   ```
    
-5. Instale os pacotes:
+4. Instale os pacotes:
 
   ```bash
   go get .
@@ -45,7 +49,7 @@ aplicando o conhecimento básico que desenvolvi em poucos dias, como pointers, s
   go build
   ```
 
-3. O programa possui dois comandos: ip e server:
+2. O programa possui dois comandos: ip e server:
    
 - O comando ip ira buscar os Ips públicos do endereço que for mandado na flag host:
   ```bash
